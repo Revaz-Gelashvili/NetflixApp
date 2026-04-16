@@ -42,9 +42,9 @@ export default function Card({
             {title}
           </h3>
 
-          <div className="mt-2 flex justify-between items-center gap-2 transition-all duration-300 opacity-0 group-hover:opacity-100 group-hover:-translate-y-2">
+          <div className="mt-2 flex justify-between items-center gap-2 transition-all duration-300 lg:opacity-0 group-hover:opacity-100 group-hover:-translate-y-2">
             <p className="text-xs text-gray-400">{release_date}</p>
-            <span className="bg-yellow-500 text-black text-[10px] font-bold px-2 py-0.5 rounded">
+            <span className="bg-yellow-500 text-black text-[10px] font-bold px-1 sm:px-3 py-1 rounded-2xl text-center">
               IMDB: {vote_average.toFixed(1)}
             </span>
           </div>
