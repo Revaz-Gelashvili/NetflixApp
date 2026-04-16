@@ -29,7 +29,7 @@ export default function MainPage() {
 
       <div className="fixed inset-0 bg-black/60 z-10 pointer-events-none"></div>
 
-      <div className="relative z-20 p-9 pt-24">
+      <div className="relative z-20 pt-24! md:p-9 p-4">
         <div className="flex flex-wrap gap-6 justify-center">
           {movies.map((item) => (
             <Card

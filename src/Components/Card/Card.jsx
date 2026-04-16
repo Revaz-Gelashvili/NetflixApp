@@ -16,7 +16,7 @@ export default function Card({
       className="group block transform hover:scale-105 transition-transform duration-300"
     >
       <div
-        className="relative w-50 h-64 rounded-2xl p-2 overflow-hidden shadow-2xl"
+        className="relative w-38 sm:w-50 h-64 rounded-2xl p-2 overflow-hidden shadow-2xl"
         style={{
           backgroundImage: `url(${fullImageUrl})`,
           backgroundSize: "cover",
