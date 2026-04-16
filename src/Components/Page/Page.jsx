@@ -15,7 +15,7 @@ export default function MainPage() {
   }, []);
 
   return (
-    <section className="relative min-h-screen">
+    <section className="relative min-h-screen bg-black">
       {/* ВИДЕО-ФОН (Fixed - всегда на весь экран) */}
       <video
         autoPlay
