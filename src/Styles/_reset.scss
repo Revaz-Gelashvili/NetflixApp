@@ -1,0 +1,40 @@
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
