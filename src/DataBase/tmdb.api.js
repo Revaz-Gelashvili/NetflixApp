@@ -45,10 +45,19 @@ export const searchMovies = async (query) => {
   }
 };
 
-// 3. Детали фильма
 export const getMovieDetails = async (id) => {
   const response = await fetch(
     `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`,
   );
   return await response.json();
+};
+
+export const getMovieVideos = async (id) => {
+  const response = await fetch(
+    `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
+  );
+  const data = await response.json();
+  return data.results.find(
+    (vid) => vid.type === "Trailer" && vid.site === "YouTube",
+  );
 };
