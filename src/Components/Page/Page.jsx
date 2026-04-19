@@ -24,7 +24,7 @@ export default function Page({ searchQuery }) {
   const displayMovies = movies.slice(0, 24);
 
   return (
-    <section className="relative min-h-screen bg-black md:pt-20">
+    <section className="relative min-h-screen bg-black md:pt-14">
       <video
         autoPlay
         loop
