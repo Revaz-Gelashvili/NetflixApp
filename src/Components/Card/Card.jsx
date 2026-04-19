@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Favourite from "../../assets/svg/favourite.svg";
+import UnFavourite from "../../assets/svg/unfavourite.svg";
 
 export default function Card({
   title,
@@ -34,7 +36,11 @@ export default function Card({
             setIsFavourite(!isFavourite);
           }}
         >
-          {isFavourite ? "❤️" : "🤍"}
+          <img
+            src={isFavourite ? Favourite : UnFavourite}
+            alt="favourite"
+            className="w-6 h-6"
+          />
         </button>
 
         <div className="absolute bottom-0 p-3 text-white w-full">
