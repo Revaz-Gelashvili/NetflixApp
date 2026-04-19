@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
+import Sidebar from "../SideBar/Sidebar";
+import Menu from "../../assets/svg/menu.svg";
+import Search from "../Search/Search";
+import Close from "../../assets/svg/close.svg";
+import React, { useState } from "react";
 
-export default function Header() {
+export default function Header({ setSearchQuery }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/10">
       <div className="max-w-350 mx-auto flex items-center h-16 px-8">
@@ -16,7 +23,7 @@ export default function Header() {
               <li className="hover:text-white transition-colors cursor-pointer">
                 <Link to="/">Home</Link>
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer text-white">
+              <li className="hover:text-white transition-colors cursor-pointer">
                 Movies
               </li>
               <li className="hover:text-white transition-colors cursor-pointer">
@@ -31,15 +38,23 @@ export default function Header() {
 
         <div className="flex-1"></div>
 
-        {/* ПРАВАЯ ЧАСТЬ: Поиск */}
-        <div className="flex justify-end items-center">
-          <input
-            className="bg-black/20 border border-white/20 rounded-full px-4 py-1.5 text-sm text-white focus:outline-none focus:border-red-600 sm:focus:w-80 transition-all duration-300 lg:w-60 sm:w-48 w-32"
-            type="search"
-            placeholder="Search..."
-          />
+        <div className="flex gap-3 justify-between items-center">
+          <div
+            className="md:hidden cursor-pointer z-100 relative"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <img
+              src={isOpen ? Close : Menu}
+              alt="Menu"
+              className="w-8 transition-all duration-300"
+            />
+          </div>
+          <div className="hidden md:block">
+            <Search setSearchQuery={setSearchQuery} />
+          </div>
         </div>
       </div>
+      <Sidebar isOpen={isOpen} setSearchQuery={setSearchQuery} />
     </header>
   );
 }

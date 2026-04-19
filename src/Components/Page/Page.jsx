@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { getPopularMovies } from "../../DataBase/tmdb.api";
+import { searchMovies } from "../../DataBase/tmdb.api";
 import Card from "../Card/Card.jsx";
 import backgroundVideo from "../../assets/bg-video.mp4";
 
-export default function MainPage() {
+export default function Page({ searchQuery }) {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const loadingData = async () => {
-      const data = await getPopularMovies();
+      let data;
+      if (searchQuery.trim()) {
+        data = await searchMovies(searchQuery);
+      } else {
+        data = await getPopularMovies();
+      }
       setMovies(data);
     };
+
     loadingData();
-  }, []);
+  }, [searchQuery]);
+
+  const displayMovies = movies.slice(0, 24);
 
   return (
-    <section className="relative min-h-screen bg-black">
-      {/* ВИДЕО-ФОН (Fixed - всегда на весь экран) */}
+    <section className="relative min-h-screen bg-black md:pt-20">
       <video
         autoPlay
         loop
@@ -29,19 +37,15 @@ export default function MainPage() {
 
       <div className="fixed inset-0 bg-black/60 z-10 pointer-events-none"></div>
 
-      <div className="relative z-20 pt-24! md:p-9 p-4">
+      <div className="relative z-20 pt-24 md:p-9 p-4">
         <div className="flex flex-wrap gap-6 justify-center">
-          {movies.map((item) => (
-            <Card
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              overview={item.overview}
-              backdrop_path={item.backdrop_path}
-              release_date={item.release_date}
-              vote_average={item.vote_average}
-            />
+          {displayMovies.map((item) => (
+            <Card key={item.id} {...item} />
           ))}
+
+          {movies.length === 0 && searchQuery && (
+            <h2 className="text-white text-2xl mt-10"></h2>
+          )}
         </div>
       </div>
     </section>
