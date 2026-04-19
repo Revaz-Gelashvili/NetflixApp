@@ -20,7 +20,7 @@ export default function Header({ setSearchQuery }) {
           </Link>
           <nav className="hidden md:block">
             <ul className="flex gap-6 text-sm font-medium text-gray-300">
-              <li className="hover:text-white transition-colors cursor-pointer">
+              <li className="hover:text-white transition-colors cursor-pointer no-underline">
                 <Link to="/">Home</Link>
               </li>
               <li className="hover:text-white transition-colors cursor-pointer">
