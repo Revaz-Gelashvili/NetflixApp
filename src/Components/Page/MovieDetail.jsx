@@ -145,6 +145,7 @@ export default function MovieDetail() {
                     src={`https://www.youtube.com/embed/${trailer.key}?rel=0&showinfo=0`}
                     title="Trailer"
                     frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
                     allowFullScreen
                   ></iframe>
                 </div>
