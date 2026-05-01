@@ -46,9 +46,9 @@ export default function Header({ setSearchQuery }) {
               <li className="hover:text-white transition-colors cursor-pointer">
                 <Link to="/wishlist">Wishlist</Link>
               </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
+              {/* <li className="hover:text-white transition-colors cursor-pointer">
                 <Link to="/watched">Watched</Link>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
