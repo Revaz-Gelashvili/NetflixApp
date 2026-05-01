@@ -56,12 +56,12 @@ export default function Header({ setSearchQuery }) {
         <div className="flex-1"></div>
 
         <div className="flex gap-6 items-center">
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Search setSearchQuery={setSearchQuery} />
           </div>
 
           {user && (
-            <div className="hidden md:flex items-center gap-4 border-l border-white/10 pl-6">
+            <div className="hidden xl:flex items-center gap-4 border-l border-white/10 pl-6">
               <div className="flex flex-col items-end">
                 <span className="text-[10px] text-gray-500 uppercase tracking-widest leading-none mb-1">
                   Account
@@ -80,7 +80,7 @@ export default function Header({ setSearchQuery }) {
           )}
 
           <div
-            className="md:hidden cursor-pointer z-100 relative"
+            className="xl:hidden cursor-pointer z-100 relative"
             onClick={() => setIsOpen(!isOpen)}
           >
             <img
