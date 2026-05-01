@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getPopularMovies } from "../../DataBase/tmdb.api";
-import { searchMovies } from "../../DataBase/tmdb.api";
+import { getPopularMovies, searchMovies } from "../../DataBase/tmdb.api";
 import Card from "../Card/Card.jsx";
 import backgroundVideo from "../../assets/bg-video.mp4";
+import { useAuth } from "../../context/AuthContext.jsx";
+import { db } from "../../DataBase/firebase.js";
+import { doc, onSnapshot } from "firebase/firestore";
 
 export default function Page({ searchQuery }) {
   const [movies, setMovies] = useState([]);
+  const [favouriteIds, setFavouriteIds] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => {
     const loadingData = async () => {
@@ -17,9 +21,23 @@ export default function Page({ searchQuery }) {
       }
       setMovies(data);
     };
-
     loadingData();
   }, [searchQuery]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const userDocRef = doc(db, "users", user.uid);
+    const unsubscribe = onSnapshot(userDocRef, (doc) => {
+      if (doc.exists()) {
+        const wishlist = doc.data().wishlist || [];
+        const ids = wishlist.map((movie) => movie.id);
+        setFavouriteIds(ids);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [user]);
 
   const displayMovies = movies.slice(0, 24);
 
@@ -40,11 +58,15 @@ export default function Page({ searchQuery }) {
       <div className="relative z-20 pt-24 md:p-9 p-4">
         <div className="flex flex-wrap gap-6 justify-center">
           {displayMovies.map((item) => (
-            <Card key={item.id} {...item} />
+            <Card
+              key={item.id}
+              {...item}
+              initialIsFavourite={favouriteIds.includes(item.id)}
+            />
           ))}
 
           {movies.length === 0 && searchQuery && (
-            <h2 className="text-white text-2xl mt-10"></h2>
+            <h2 className="text-white text-2xl mt-10">Фильмы не найдены</h2>
           )}
         </div>
       </div>

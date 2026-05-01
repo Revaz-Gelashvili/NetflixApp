@@ -1,0 +1,18 @@
+@layer utilities {
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateX(150px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(150px) rotate(-360deg);
+    }
+  }
+
+  .animate-slow-spin {
+    animation: orbit 10s linear infinite;
+  }
+
+  .animate-slow-spin-reverse {
+    animation: orbit 15s linear infinite reverse;
+  }
+}
