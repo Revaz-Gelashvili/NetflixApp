@@ -4,7 +4,7 @@ import Menu from "../../assets/svg/menu.svg";
 import Search from "../Search/Search";
 import Close from "../../assets/svg/close.svg";
 import React, { useState } from "react";
-import { useAuth } from "../../context/AuthContext.jsx";
+import { useAuth } from "../../Context/AuthContext.jsx";
 
 export default function Header({ setSearchQuery }) {
   const [isOpen, setIsOpen] = useState(false);

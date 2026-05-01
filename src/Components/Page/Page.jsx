@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getPopularMovies, searchMovies } from "../../DataBase/tmdb.api";
 import Card from "../Card/Card.jsx";
 import backgroundVideo from "../../assets/bg-video.mp4";
-import { useAuth } from "../../context/AuthContext.jsx";
+import { useAuth } from "../../Context/AuthContext.jsx";
 import { db } from "../../DataBase/firebase.js";
 import { doc, onSnapshot } from "firebase/firestore";
 

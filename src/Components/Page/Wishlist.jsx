@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../DataBase/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../Context/AuthContext";
 import Card from "../Card/Card";
 import backgroundVideo from "../../assets/bg-video.mp4";
 

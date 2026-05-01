@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Favourite from "../../assets/svg/favourite.svg";
 import UnFavourite from "../../assets/svg/unfavourite.svg";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../Context/AuthContext";
 import { addToWishlist, removeFromWishlist } from "../../DataBase/database.js";
 
 export default function Card({

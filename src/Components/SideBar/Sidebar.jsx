@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Search from "../Search/Search";
-import { useAuth } from "../../context/AuthContext.jsx";
+import { useAuth } from "../../Context/AuthContext.jsx";
 
 export default function Sidebar({ isOpen, setSearchQuery, toggleSidebar }) {
   const { user, logout } = useAuth();
